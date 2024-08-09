@@ -8,6 +8,7 @@ import storage.LessonStorage;
 import storage.StudentStorage;
 import storage.UserStorage;
 
+import java.io.IOException;
 import java.util.Date;
 import java.util.Scanner;
 
@@ -103,10 +104,23 @@ public class StudentDemo implements Commands {
                 case PRINT_ALL_LESSONS:
                     lessonStorage.print();
                     break;
+                case DOWNLOAD_STUDENTS_EXCEL:
+                    downloadStudentsExcel();
+                    break;
                 default:
                     System.out.println("Invalid command");
             }
 
+        }
+    }
+
+    private static void downloadStudentsExcel() {
+        System.out.println("Please input file location");
+        String fileDir = scanner.nextLine();
+        try {
+            studentStorage.writeStudentsToExcel(fileDir);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -173,6 +187,9 @@ public class StudentDemo implements Commands {
                 case PRINT_ALL_LESSONS:
                     lessonStorage.print();
                     break;
+                case DOWNLOAD_STUDENTS_EXCEL:
+                    downloadStudentsExcel();
+                    break;
                 default:
                     System.out.println("Invalid command");
             }
@@ -190,8 +207,8 @@ public class StudentDemo implements Commands {
         lessonStorage.add(mysql);
         lessonStorage.add(php);
         studentStorage.add(new Student("poxos", "poxosyan", 24, "123454", "Gyumri", java, admin, new Date()));
-        studentStorage.add(new Student("petros", "poxosyan", 22, "1243454", "Gyumri", mysql, admin,new Date()));
-        studentStorage.add(new Student("martiros", "poxosyan", 12, "1236454", "Gyumri", php, admin,new Date()));
+        studentStorage.add(new Student("petros", "poxosyan", 22, "1243454", "Gyumri", mysql, admin, new Date()));
+        studentStorage.add(new Student("martiros", "poxosyan", 12, "1236454", "Gyumri", php, admin, new Date()));
 
     }
 

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<students>
+
+    <student>
+        <name>Poxos</name>
+        <surname>Poxosyan</surname>
+        <age>32</age>
+    </student>
+
+    <student>
+        <name>Petros</name>
+        <surname>Petrosyan</surname>
+        <age>40</age>
+    </student>
+
+</students>
